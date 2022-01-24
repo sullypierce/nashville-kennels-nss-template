@@ -1,4 +1,5 @@
 
+
 export const getAnimals = () => {
     return fetch("http://localhost:8088/animals")
         .then(res => res.json())
@@ -26,14 +27,14 @@ export const addAnimal = animal => {
 }
 
 export const updateAnimal = animal => {
+    console.log(animal)
     return fetch(`http://localhost:8088/animals/${animal.id}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(animal)
+        body: JSON.stringify(animal),
     })
-        .then(getAnimals)
 }
 
 export const releaseAnimal = (animalId) => {

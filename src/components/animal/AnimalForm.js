@@ -29,6 +29,7 @@ export const AnimalForm = () => {
         if (editMode) {
             getAnimalById(animalId).then((res) => {
                 setAnimal(res)
+                console.log(res)
             })
         }
         getLocations().then(locationsData => setLocations(locationsData))
@@ -46,9 +47,9 @@ export const AnimalForm = () => {
                     id: animal.id,
                     name: animal.name,
                     breed: animal.breed,
-                    locationId: locationId,
-                    treatment: animal.treatment,
-                    customerId: parseInt(localStorage.getItem("kennel_customer"))
+                    location_id: locationId,
+                    status: animal.status,
+                    customer_id: parseInt(localStorage.getItem("kennel_customer"))
                 })
                     .then(() => history.push("/animals"))
             } else {
@@ -57,7 +58,7 @@ export const AnimalForm = () => {
                     name: animal.name,
                     breed: animal.breed,
                     locationId: locationId,
-                    treatment: animal.treatment,
+                    status: animal.status,
                     customerId: parseInt(localStorage.getItem("kennel_customer"))
                 })
                     .then(() => history.push("/animals"))
@@ -108,9 +109,9 @@ export const AnimalForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="treatment">Treatments: </label>
-                    <textarea type="text" name="treatment" className="form-control"
-                        value={animal.treatment}
+                    <label htmlFor="treatment">Status: </label>
+                    <textarea type="text" name="status" className="form-control"
+                        value={animal.status}
                         onChange={handleControlledInputChange}>
                     </textarea>
                 </div>
