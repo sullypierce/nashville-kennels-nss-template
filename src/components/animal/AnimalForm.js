@@ -57,9 +57,9 @@ export const AnimalForm = () => {
                 addAnimal({
                     name: animal.name,
                     breed: animal.breed,
-                    locationId: locationId,
+                    location_id: locationId,
                     status: animal.status,
-                    customerId: parseInt(localStorage.getItem("kennel_customer"))
+                    customer: parseInt(localStorage.getItem("kennel_customer"))
                 })
                     .then(() => history.push("/animals"))
             }
