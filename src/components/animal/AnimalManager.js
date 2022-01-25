@@ -23,7 +23,6 @@ export const addAnimal = animal => {
         },
         body: JSON.stringify(animal)
     })
-        .then(getAnimals)
 }
 
 export const updateAnimal = animal => {
